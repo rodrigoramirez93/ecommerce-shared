@@ -1,6 +1,7 @@
 ﻿using Infrastructure.Interfaces;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc.Filters;
+using Shared.Infrastructure.Core;
 using System.Linq;
 using System.Security.Claims;
 using static Shared.Infrastructure.Core.Constants;
@@ -22,7 +23,7 @@ namespace Shared.Infrastructure.Filters
 
             var _loggedUserService = context.HttpContext.RequestServices.GetService(typeof(ILoggedUserService)) as ILoggedUserService;
             if (_loggedUserService == null)
-                return;
+                throw new AppException(Messages.Error.ContactAdministrator);
 
             var claims = ((ClaimsIdentity)context.HttpContext.User.Identity).Claims;
             var tenantClaim = claims.Where(x => x.Type == Claims.Tenant);
