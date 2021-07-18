@@ -20,6 +20,12 @@ namespace Shared.Infrastructure.Core
             public static string UserTenant = "UserTenant";
         }
 
+        public static class RuleSets
+        {
+            public static string Create { get; } = "Create";
+            public static string Update { get; } = "Update";
+        }
+
         public static class Claims
         {
             public static string Tenant = "Tenant";
