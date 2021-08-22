@@ -28,7 +28,8 @@ namespace Shared.Infrastructure.Core
 
         public static class Claims
         {
-            public static string Tenant = "Tenant";
+            public static string Tenant = "tenant";
+            public static string DefaultTenantId = "defaultTenantId";
 
             public static Dictionary<string, string> All { get { return GetAllClaims(); } }
 
