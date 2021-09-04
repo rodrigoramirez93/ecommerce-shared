@@ -35,7 +35,8 @@ namespace Shared.Infrastructure.Extensions
                     options.AddPolicy(Claims.CAN_CREATE_USERS, policy => policy.RequireClaim(Claims.CAN_CREATE_USERS, "true"));
                     options.AddPolicy(Claims.CAN_UPDATE_USERS, policy => policy.RequireClaim(Claims.CAN_UPDATE_USERS, "true"));
                     options.AddPolicy(Claims.CAN_DELETE_USERS, policy => policy.RequireClaim(Claims.CAN_DELETE_USERS, "true"));
-
+                    //tenants
+                    options.AddPolicy(Claims.CAN_CREATE_TENANT, policy => policy.RequireClaim(Claims.CAN_CREATE_TENANT, "true"));
                 })
 
                 .AddAuthentication(options =>

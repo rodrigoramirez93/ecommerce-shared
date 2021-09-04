@@ -17,7 +17,6 @@ namespace Shared.Infrastructure.Core
             public static string UserRole = "UserRole";
 
             public static string Tenant = "Tenant";
-            public static string UserTenant = "UserTenant";
         }
 
         public static class RuleSets
@@ -78,6 +77,7 @@ namespace Shared.Infrastructure.Core
             public const string CAN_DELETE_USERS = "CAN_DELETE_USERS";
 
             //tenant
+            public const string CAN_CREATE_TENANT = "CAN_CREATE_TENANT";
             public const string CAN_READ_TENANT = "CAN_READ_TENANT";
 
             //product
