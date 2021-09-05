@@ -16,6 +16,8 @@ namespace Infrastructure.Interfaces
 
         public void SetUserId(Claim tenantIds);
 
+        public void SetRequestTenant(string tenantHeader);
+
         public LoggedUser GetLoggedUser();
     }
 }

@@ -32,5 +32,10 @@ namespace Infrastructure.Services
             var canParse = int.TryParse(userIdClaim.Value, out int id);
             if (canParse) LoggedUser.Id = id;
         }
+
+        public void SetRequestTenant(string tenantHeader)
+        {
+            LoggedUser.ActiveTenant = Guid.Parse(tenantHeader);
+        }
     }
 }

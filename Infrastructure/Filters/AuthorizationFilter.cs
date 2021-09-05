@@ -25,6 +25,10 @@ namespace Shared.Infrastructure.Filters
             if (_loggedUserService == null)
                 throw new AppException(Messages.Error.ContactAdministrator);
 
+            var requestTenant = context.HttpContext.Request.Headers.FirstOrDefault(x => x.Key == Headers.TENANT).Value.ToString();
+            if (requestTenant == null)
+                throw new AppException(Messages.Error.ContactAdministrator);
+
             var claims = ((ClaimsIdentity)context.HttpContext.User.Identity).Claims;
             var tenantClaim = claims.Where(x => x.Type == Claims.Tenant);
             var idClaim = claims.Where(x => x.Type == ClaimTypes.NameIdentifier).FirstOrDefault();
@@ -33,6 +37,7 @@ namespace Shared.Infrastructure.Filters
             _loggedUserService.SetEmail(context.HttpContext.User.Identity.Name);
             _loggedUserService.SetClaims(claims.Except(tenantClaim));
             _loggedUserService.SetTenants(tenantClaim);
+            _loggedUserService.SetRequestTenant(requestTenant);
         }
     }
 }

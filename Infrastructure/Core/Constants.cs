@@ -25,6 +25,11 @@ namespace Shared.Infrastructure.Core
             public static string Update { get; } = "Update";
         }
 
+        public static class Headers
+        {
+            public static string TENANT = "x-tenant";
+        }
+
         public static class Claims
         {
             public static string Tenant = "tenant";

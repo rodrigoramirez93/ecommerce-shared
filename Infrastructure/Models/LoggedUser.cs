@@ -11,5 +11,6 @@ namespace Infrastructure.Models
         public string Email { get; set; }
         public IEnumerable<Claim> Claims { get; set; }
         public IEnumerable<Claim> Tenants { get; set; }
+        public Guid? ActiveTenant { get; set; }
     }
 }
