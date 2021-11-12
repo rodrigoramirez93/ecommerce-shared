@@ -37,7 +37,7 @@ namespace Shared.Infrastructure.Filters
             _loggedUserService.SetEmail(context.HttpContext.User.Identity.Name);
             _loggedUserService.SetClaims(claims.Except(tenantClaim));
             _loggedUserService.SetTenants(tenantClaim);
-            _loggedUserService.SetRequestTenant(requestTenant);
+            //_loggedUserService.SetRequestTenant(requestTenant);
         }
     }
 }
